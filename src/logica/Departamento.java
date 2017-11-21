@@ -10,9 +10,7 @@ public class Departamento {
 
 		conexion.realizaConsulta();
 		
-		conexion.dimeTablas();
-		
-		conexion.dimeColumnas();
+
 		
 		conexion.cerrarConexion();
 	}// fin de main
