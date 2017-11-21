@@ -1,9 +1,5 @@
 package logica;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import bbdd.Conexion;
 
 public class Departamento {
@@ -13,6 +9,11 @@ public class Departamento {
 		Conexion conexion = new Conexion("ejemplo", "root", "root");
 
 		conexion.realizaConsulta();
+		
+		conexion.dimeTablas();
+		
+		conexion.dimeColumnas();
+		
 		conexion.cerrarConexion();
 	}// fin de main
 

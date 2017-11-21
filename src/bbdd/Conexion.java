@@ -55,6 +55,46 @@ public class Conexion {
 
 	}
 
+	public void dimeTablas() {
+
+		try {
+
+			DatabaseMetaData metaDatos = conexion.getMetaData();
+
+			ResultSet rs = metaDatos.getTables(null, null, "%", null);
+
+			while (rs.next()) {
+				String catalogo = rs.getString(1);
+				String tabla = rs.getString(3);
+				System.out.println("TABLA=" + catalogo + "." + tabla);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+
+	}
+
+	public void dimeColumnas() {
+		try {
+
+			DatabaseMetaData metaDatos = conexion.getMetaData();
+
+			ResultSet rs = metaDatos.getColumns(null, null, null, null);
+
+			while (rs.next()) {
+				String nombreColumna = rs.getString(4);
+				String tipoColumna = rs.getString(6);
+				System.out.println("COLUMNA, nombre=" + nombreColumna + " tipo = " + tipoColumna);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public void realizaConsulta() {
 
 		try {
