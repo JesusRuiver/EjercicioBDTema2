@@ -17,15 +17,18 @@ public class Conexion {
 
 	private String usuario = "";
 
-	private String contraseña = "";
+	private String pass = "";
 	
 	private String url = "";
 
-	public Conexion(String database, String usuario, String password) {
+	public Conexion(String database, String usuario, String pass) {
 
 		try {
 
 			this.database = database;
+			this.usuario = usuario;
+			this.pass = pass;
+			
 
 			// Cargar el driver
 			Class.forName("com.mysql.jdbc.Driver");
@@ -33,7 +36,7 @@ public class Conexion {
 			url = "jdbc:mysql://localhost/" + database;
 			
 			// Establecemos la conexion con la BD
-			conexion = DriverManager.getConnection(url, usuario, contraseña);
+			conexion = DriverManager.getConnection(url, usuario, pass);
 
 			System.out.println("Conexion a Base de Datos " + url + " . . . . .Ok");
 
